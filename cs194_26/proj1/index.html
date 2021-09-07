@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CS 194-26: Project 1</title>
+		<div class="container">
+      <h1>CS 194-26: Project 1</h1>
+        <p>Alexander Kristoffersen, akristoffersen@berkeley.edu</p>
+        <p><img src="onion_church_color_pyramid.jpeg" width="30%"></p>
+        <p>
+          <small>
+            The Prokudin-Gorskii photo collection is comprised of color images created by taking three separate photographs over 
+            red, blue, and green filters. In order for these plates to come together as a full color image, they need to be overlayed
+            and aligned. The goal of this project is to do this automatically.
+          </small>
+        </p>
+		</div>
+    <div class="container">
+      <p>Approaches</p>
+      <P>
+        <small>
+          To align the images, the RGB panels are cropped to exclude their edges. I then compute features for each of these 
+          panels. The alignment is determined from the maximum dot product for each x,y offsets of the flattened R_FEATURE and 
+          G_FEATURE, and the B_FEATURE and G_FEATURE.
+        </small>
+      </P>
+      <p>
+        <small>
+          Features to be used for alignment could not be just the raw panels, as the difference of base brightness of the panels would
+          scew the offsets. To fix this, I decided to try multiple high-pass filters on the panels as features, therefore focus more on
+          aligning the edges of the images.
+        </small>
+      </p>
+      <p>
+        <small>
+          I tried many different high-pass filters:
+        </small>
+      </p>
+      <ul>
+        <li>1D vertical difference (np.diff(image, axis=0))</li>
+        <li>1D horizontal difference (np.diff(image, axis=1))</li>
+        <li>The concatenation of both horizontal and vertical differences</li>
+        <li>Laplacian Edge Detector (convolve(image, Laplacian kernel))</li>
+      </ul>
+      <p><img src="laplacian_emir.jpeg" width="30%"></p>
+      <p>
+        <small>
+          Ultimately, I decided to go with the Laplacian convolution, as that seemed most accurate for both horizontal and vertical
+          offsets between the image set. I also normalized and used the histogram of the feature as a lookup table to give the features 
+          additional contrast.
+        </small>
+      </p>
+    </div>
+    <div class="container">
+      <p>Results</p>
+      <table border="1" class="dataframe">
+        <tr>
+          <th>File Name</th>
+          <th>Blue-to-Green Offsets</th>
+          <th>Red-to-Green Offsets</th>
+        </tr>
+        <tr>
+          <td>church.tif</td>
+          <td>(0, 0)</td>
+          <td>(34, 0)</td>
+        </tr>
+        <tr>
+          <td>emir.tif</td>
+          <td>(-45, -27)</td>
+          <td>(57, 17)</td>
+        </tr>
+        <tr>
+          <td>harvesters.tif</td>
+          <td>(-63, -18)</td>
+          <td>(65, 0)</td>
+        </tr>
+        <tr>
+          <td>icon.tif</td>
+          <td>(-45, -18)</td>
+          <td>(48, 5)</td>
+        </tr>
+        <tr>
+          <td>lady.tif</td>
+          <td>(-45, -9)</td>
+          <td>(63, 4)</td>
+        </tr>
+        <tr>
+          <td>melons.tif</td>
+          <td>(-81, -9)</td>
+          <td>(99, 3)</td>
+        </tr>
+        <tr>
+          <td>onion_church.tif</td>
+          <td>(-54, -27)</td>
+          <td>(58, 10)</td>
+        </tr>
+        <tr>
+          <td>self_portrait.tif</td>
+          <td>(-81, -27)</td>
+          <td>(102, 8)</td>
+        </tr>
+        <tr>
+          <td>three_generations.tif</td>
+          <td>(-54, -18)</td>
+          <td>(61, 0)</td>
+        </tr>
+        <tr>
+          <td>train.tif</td>
+          <td>(-45, -9)</td>
+          <td>(43, 26)</td>
+        </tr>
+        <tr>
+          <td>workshop.tif</td>
+          <td>(-54, 0)</td>
+          <td>(53, 0)</td>
+        </tr>
+        <tr>
+          <td>cathedral.jpg</td>
+          <td>(-6, -2)</td>
+          <td>(7, 1)</td>
+        </tr>
+        <tr>
+          <td>monastery.jpg</td>
+          <td>(2, -1)</td>
+          <td>(6, 1)</td>
+        </tr>
+        <tr>
+          <td>tobolsk.jpg</td>
+          <td>(-3, -3)</td>
+          <td>(4, 0)</td>
+        </tr>
+      </table>
+      <p><img src="emir_color_pyramid.jpeg" width="50%"></p>
+      <p><img src="self_portrait_color_pyramid.jpeg" width="50%"></p>
+      <p><img src="melons_color_pyramid.jpeg" width="50%"></p>
+      <p><img src="icon_color_pyramid.jpeg" width="50%"></p>
+      <p>
+        <small>
+          Overall, the results look fairly aligned. There are some notable exceptions, however, such as church.tif and workshop.tif:
+        </small>
+      </p>
+      <p><img src="church_color_pyramid.jpeg" width="50%"></p>
+      <p>
+        <small>
+          I suspect that this image got tripped up by the large amounts of noise in the ocean and sky. The laplacian edge detector is very
+          sensitive to noise, so this particular image would probably have done better with a larger gaussian blur before applying the kernel.
+        </small>
+      </p>
+      <p><img src="workshop_color_pyramid.jpeg" width="50%"></p>
+      <p>
+        <small>
+          For workshop.tif, the multitude of horizontal and vertical lines tricked the alignment algorithm to give false positives. 
+          A larger gaussian blur kernel before applying the laplacian may also have done this image well.
+        </small>
+      </p>
+    </div>
+		<style>
+			body {
+				background-color: #112258; /* #b3d8e7 */
+				font-family: 'Source Code Pro', monospace;
+			}
+			.container {
+    			position: relative;
+          background-color: rgb(236, 236, 200);
+          color: black;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left: 20px;
+          padding-right: 20px;
+			}
+      h1 {
+        font-size: 50px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 25px;
+      }
+		</style>
+	</head>
+<html>
