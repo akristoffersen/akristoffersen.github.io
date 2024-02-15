@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+</head>
+
+<body>
+    <script>
+        // Check if the requested URL path is "/Resume.pdf"
+        if (window.location.pathname === '/Resume.pdf') {
+            // Redirect to the new resume file
+            window.location.replace('/Resume_Alexander_Kristoffersen_FT_24.pdf');
+        } else {
+            // Display a simple error message
+            document.write("<h1>404 Not Found</h1>");
+            document.write("<p>Sorry!</p>");
+        }
+    </script>
+</body>
+
+</html>
