@@ -10,6 +10,11 @@
 	<div class="container">
 		<div class="text-block1">
 			<h1>Alexander Kristoffersen</h1>
+			<figure>
+				<img src="alex_headshot_2024.jpg" width="30%">
+				<figcaption> Me, circa 2024.</figcaption>
+			</figure>
+
 			<p>I graduated with a BS in EECS at UC Berkeley in 2022, and completed a Masters in EECS in 2023
 				specializing in computer vision and graphics.</p>
 			<p> I recently joined the Autonomy Team at <a href="https://www.skydio.com/">Skydio</a> as a computer vision
@@ -35,7 +40,7 @@
 				Pacuit) at <a href="https:
 						//sites.google.com/view/scala24/">SCaLa-24 Workshop</a> at <a
 					href="https://www.aamas2024-conference.auckland.ac.nz/">AAMAS 2024</a>
-				on the topic.
+				on the topic. It was also accepted as an oral presentation at AAAI 2025!
 			</p>
 		</div>
 		<div class="text-block2">
@@ -49,15 +54,22 @@
 
 		</div>
 	</div>
-	<figure>
-		<img src="1_distill_hr_1_compressed.gif" width="30%">
-		<figcaption> LoopNeRF Result, Berkeley Stream</figcaption>
-	</figure>
 
-	<figure>
-		<img src="alex_current.JPG" width="30%">
-		<figcaption> Me, circa 2019.</figcaption>
-	</figure>
+	<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+		<figure style="margin: 0;">
+			<img src="1_distill_hr_1_compressed.gif" style="width: 560px; height: auto;">
+			<figcaption style="font-size: 0.8em; color: gray;">LoopNeRF Result, Berkeley Stream</figcaption>
+		</figure>
+
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/H6VFFJyUXps?si=ObfEH6Fm2Y1Al3Hv"
+			title="YouTube video player" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+		</iframe>
+		<p style="font-size: 0.8em; color: gray; max-width: 560px; margin: 0;">
+			Video of me playing my homemade pipe organ, designed and built during my senior year of high school.
+		</p>
+	</div>
 	<style>
 		body {
 			background-color: #fffdf5;
@@ -75,48 +87,12 @@
 			padding: 0;
 		}
 
-		/* Bottom right text
-			.text-block1 {
-    				position: absolute;
-    				bottom: 40px;
-    				right: 369px;
-    				background-color: black;
-    				color: white;
-    				padding-left: 20px;
-    				padding-right: 20px;
-			}
-			.text-block2 {
-				position: absolute;
-				bottom: 250px;
-				left: 200px;
-				background-color: black;
-    				color: white;
-    				padding-left: 20px;
-    				padding-right: 20px;
-				padding-bottom: 20px;
-			}
-			.text-block3 {
-				position: absolute;
-				bottom: 500px;
-				right: 200px;
-				background-color: black;
-    				color: white;
-    				padding-left: 20px;
-    				padding-right: 20px;
-				padding-bottom: 20px;
-			}
-			.text-block4 {
-				position: absolute;
-				bottom: 1000px;
-				right: 300px;
-				background-color: black;
-    				color: white;
-    				padding-left: 20px;
-    				padding-right: 20px;
-				padding-bottom: 20px;
-			}
-
-*/
+		figcaption {
+			font-size: 0.8em;
+			/* Adjust the size as needed */
+			color: gray;
+			/* Optional: Makes it look subtler */
+		}
 	</style>
 	<script>
 		if (window.location.pathname === '/Resume.pdf') {
