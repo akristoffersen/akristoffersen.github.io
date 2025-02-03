@@ -93,6 +93,22 @@
 			color: gray;
 			/* Optional: Makes it look subtler */
 		}
+
+		@media (max-width: 560px) {
+			img {
+				max-width: 100%;
+				/* Ensures images don’t overflow the screen */
+				height: auto;
+			}
+
+			iframe {
+				width: 100%;
+				/* Ensures the video fits within the screen */
+				height: auto;
+				aspect-ratio: 16 / 9;
+				/* Maintains aspect ratio */
+			}
+		}
 	</style>
 	<script>
 		if (window.location.pathname === '/Resume.pdf') {
