@@ -7,6 +7,50 @@
 	<meta name="google-site-verification" content="UwHi-Z0RTxhApXUbiul9WRtKVPE5Zi6FWh9Uz9bTBTA" />
 	<meta name="description" content="Beekeeping, Woodworking, and Engineering of Alex Kristoffersen" />
 	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			background-color: #fffdf5;
+			font-family: 'Source Code Pro', monospace;
+		}
+
+		.container {
+			position: relative;
+		}
+
+		figure,
+		img {
+			margin: 0;
+			padding: 0;
+		}
+
+		figcaption {
+			font-size: 0.8em;
+			color: gray;
+		}
+
+		@media (max-width: 560px) {
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+
+			iframe {
+				width: 100%;
+				height: auto;
+				aspect-ratio: 16 / 9;
+			}
+		}
+	</style>
+
+	<script>
+		if (window.location.pathname === '/Resume.pdf') {
+			window.location.replace('/Resume_Alexander_Kristoffersen_FT_24.pdf');
+		}
+	</script>
+</head>
+
+<body>
 	<div class="container">
 		<div class="text-block1">
 			<h1>Alexander Kristoffersen</h1>
@@ -22,7 +66,7 @@
 				working within photogrammetry and 3D vision.</p>
 			<p>Here are a couple of projects that I am proud to be a part of:</p>
 			<ul>
-				<li><a href="https://github.com/nerfstudio-project/nerfstudio">Nerfstudio - A collaboration friendly
+				<li><a href="https://github.com/nerfstudio-project/nerfstudio">Nerfstudio - A collaboration-friendly
 						studio for NeRFs</a> (<a href="https://arxiv.org/abs/2302.04264">Paper</a>)</li>
 				<li><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2023/EECS-2023-118.html">LoopNeRF - Temporal
 						Compression for Generating 3D Video Textures</a> (Master's Final Project) </li>
@@ -51,7 +95,6 @@
 			<p><a href="https://alexkristoffersenprojects.wordpress.com/">Blog</a></p>
 			<p><a href="https://scholar.google.com/citations?user=u8p5Y1EAAAAJ&hl=en">Google Scholar</a></p>
 			<p><a href="https://www.akristoffersen.com/Resume_Alexander_Kristoffersen_FT_24.pdf">Resume</a></p>
-
 		</div>
 	</div>
 
@@ -70,50 +113,10 @@
 			Video of me playing my homemade pipe organ, designed and built during my senior year of high school.
 		</p>
 	</div>
-	<style>
-		body {
-			background-color: #fffdf5;
-			font-family: 'Source Code Pro', monospace;
 
-		}
+	<script type="text/javascript" id="mapmyvisitors"
+		src="//mapmyvisitors.com/map.js?d=fqJssdSVwwno-PEeDuVZYzdHoOvSnIt0dcRG40Owmes&cl=ffffff&w=a"></script>
 
-		.container {
-			position: relative;
-		}
+</body>
 
-		figure,
-		img {
-			margin: 0;
-			padding: 0;
-		}
-
-		figcaption {
-			font-size: 0.8em;
-			/* Adjust the size as needed */
-			color: gray;
-			/* Optional: Makes it look subtler */
-		}
-
-		@media (max-width: 560px) {
-			img {
-				max-width: 100%;
-				/* Ensures images don’t overflow the screen */
-				height: auto;
-			}
-
-			iframe {
-				width: 100%;
-				/* Ensures the video fits within the screen */
-				height: auto;
-				aspect-ratio: 16 / 9;
-				/* Maintains aspect ratio */
-			}
-		}
-	</style>
-	<script>
-		if (window.location.pathname === '/Resume.pdf') {
-			window.location.replace('/Resume_Alexander_Kristoffersen_FT_24.pdf');
-		}
-	</script>
-</head>
-<html>
+</html>
