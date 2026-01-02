@@ -35,6 +35,11 @@
 				height: auto;
 			}
 
+			video {
+				max-width: 100%;
+				height: auto;
+			}
+
 			iframe {
 				width: 100%;
 				height: auto;
@@ -109,7 +114,11 @@
 
 	<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
 		<figure style="margin: 0;">
-			<img src="1_distill_hr_1_compressed.gif" style="width: 560px; height: auto;">
+			<video autoplay loop muted playsinline style="width: 560px; height: auto;">
+				<source src="1_distill_hr_1_compressed.mp4" type="video/mp4">
+				<!-- Fallback for browsers that don't support video -->
+				<img src="1_distill_hr_1_compressed.gif" style="width: 560px; height: auto;">
+			</video>
 			<figcaption style="font-size: 0.8em; color: gray;">LoopNeRF Result, Berkeley Stream</figcaption>
 		</figure>
 
@@ -123,7 +132,11 @@
 		</p>
 
 		<figure style="margin: 0;">
-			<img src="octopus_sculpture_compressed.gif" style="width: 560px; height: auto;">
+			<video autoplay loop muted playsinline style="width: 560px; height: auto;">
+				<source src="octopus_sculpture_compressed.mp4" type="video/mp4">
+				<!-- Fallback for browsers that don't support video -->
+				<img src="octopus_sculpture_compressed.gif" style="width: 560px; height: auto;">
+			</video>
 			<figcaption style="font-size: 0.8em; color: gray;">Sculpture of an octopus I made, 2025</figcaption>
 		</figure>
 	</div>
